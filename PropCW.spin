@@ -10,9 +10,11 @@ OBJ
 VAR
   LONG ditlength
 PUB main
-  ditlength := 250
+  ditlength := 100
   dira[ledpin]~~
   morse.init(freq,cwpin,ledpin,ditlength)
   repeat
-    morse.send("a")
-    waitcnt(cnt+clkfreq)
+    morse.send("c")
+    morse.waitdah
+    morse.send("q")
+    morse.wait7dits

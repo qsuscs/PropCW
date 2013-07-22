@@ -16,187 +16,283 @@ PUB send(sign)
   CASE sign
     "a" :
       dit
+      waitdit
       dah
     "b" :
       dah
-      dit
-      dit
-      dit
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
     "c" :
-      dah
-      dit
-      dah
-      dit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dit    
     "d" :
-      dah
-      dit
-      dit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dit    
     "e" :
-      dit
+      dit    
     "f" :
-      dit
-      dit
-      dah
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dah    
+      waitdit
       dit
     "g" :
-      dah
-      dah
+      dah    
+      waitdit
+      dah    
+      waitdit
       dit
     "h" :
-      dit
-      dit
-      dit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dit
     "i" :
-      dit
+      dit    
+      waitdit
       dit
     "j" :
-      dit
-      dah
-      dah
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dah
     "k" :
-      dah
-      dit
+      dah    
+      waitdit
+      dit    
+      waitdit
       dah
     "l" :
-      dit
-      dah
-      dit
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dit    
+      waitdit
       dit
     "m" :
-      dah
+      dah    
+      waitdit
       dah
     "n" :
-      dah
+      dah    
+      waitdit
       dit
     "o" :
-      dah
-      dah
+      dah    
+      waitdit
+      dah    
+      waitdit
       dah
     "p" :
-      dit
-      dah
-      dah
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dit
     "q" :
-      dah
-      dah
-      dit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dit    
+      waitdit
       dah
     "r" :
-      dit
-      dah
+      dit    
+      waitdit
+      dah    
+      waitdit
       dit
     "s" :
-      dit
-      dit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dit
     "t" :
       dah
     "u" :
-      dit
-      dit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dah
     "v" :
-      dit
-      dit
-      dit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dah
     "w" :
-      dit
-      dah
+      dit    
+      waitdit
+      dah    
+      waitdit
       dah
     "x" :
-      dah
-      dit
-      dit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dah
     "y" :
-      dah
-      dit
-      dah
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dah    
+      waitdit
       dah
     "z" :
-      dah
-      dah
-      dit
-      dit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dit    
     "0" :
-      dah
-      dah
-      dah
-      dah
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dah
     "1" :
-      dit
-      dah
-      dah
-      dah
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dah
     "2" :
-      dit
-      dit
-      dah
-      dah
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dah
     "3" :
       dit
-      dit
-      dit
-      dah
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dah    
+      waitdit
       dah
     "4" :
-      dit
-      dit
-      dit
-      dit
+      dit 
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dah
     "5" :
-      dit
-      dit
-      dit
-      dit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dit
     "6" :
-      dah
-      dit
-      dit
-      dit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dit
     "7" :
-      dah
-      dah
-      dit
-      dit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dit    
+      waitdit
+      dit    
+      waitdit
       dit
     "8" :
-      dah
-      dah
-      dah
-      dit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dit    
+      waitdit
       dit
     "9" :
-      dah
-      dah
-      dah
-      dah
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
+      dah    
+      waitdit
       dit
 PUB waitdit
   waitcnt(cnt + clkfreqms*ditlength)
 PUB waitdah
   waitcnt(cnt + clkfreqms*ditlength*3)
+PUB wait7dits
+  waitcnt(cnt + clkfreqms*ditlength*7)
 PRI dit
   Synth.Synth("A",cwpin,freq)
   outa[ledpin]~~
   waitcnt(cnt + clkfreqms*ditlength)
   Synth.silence_a(cwpin)
   outa[ledpin]~
-  waitcnt(cnt + clkfreqms*ditlength)
 PRI dah
   Synth.Synth("A",cwpin,freq)
   outa[ledpin]~~
   waitcnt(cnt + clkfreqms*ditlength*3)
   Synth.silence_a(cwpin)
-  outa[ledpin]~
-  waitcnt(cnt + clkfreqms*ditlength)  
+  outa[ledpin]~  
