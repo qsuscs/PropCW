@@ -182,6 +182,10 @@ PUB send(sign)
       dah
       dah
       dit
+PUB waitdit
+  waitcnt(cnt + clkfreqms*ditlength)
+PUB waitdah
+  waitcnt(cnt + clkfreqms*ditlength*3)
 PRI dit
   Synth.Synth("A",cwpin,freq)
   outa[ledpin]~~
