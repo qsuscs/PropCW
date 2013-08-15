@@ -1,7 +1,7 @@
 VAR
-  LONG clkfreqms,sign
+  LONG clkfreqms
   WORD freq,ditlength
-  BYTE vari,varj,idx,cwpin,ledpin
+  BYTE vari,varj,idx,cwpin,ledpin,sign
 OBJ Synth:"Synth"
 PUB init(Sfreq,Scwpin,Sledpin,Sditlength)
   clkfreqms := clkfreq/1000
